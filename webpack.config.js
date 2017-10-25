@@ -1,6 +1,6 @@
-var path = require('path');
-var SRC = path.resolve(__dirname,'src');
-var DIST = path.resolve(__dirname,'dist');
+const path = require('path');
+const SRC = path.resolve(__dirname,'src');
+const DIST = path.resolve(__dirname,'dist');
 
 module.exports = {
     entry: SRC + '/app/index.js',
@@ -10,12 +10,35 @@ module.exports = {
         publicPath: '/app/'
     },
     module:{
-        loaders:[
+        rules:[
             {
                 test: /\.js$/,
                 include: SRC,
-                loader: 'babel-loader',
+                use: 'babel-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                use:[
+                    'style-loader',
+                    'css-loader'
+                ]
+            },
+            {
+                test: /\.scss$/,
+                use:[
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
+            },
+            {
+                test: /\.less/,
+                use:[
+                    'style-loader',
+                    'css-loader',
+                    'less-loader'
+                ]
             }
         ]
     }
