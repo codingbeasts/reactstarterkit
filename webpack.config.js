@@ -9,6 +9,12 @@ module.exports = {
         filename: 'bundle.js',
         publicPath: '/app/'
     },
+    devServer: {
+        contentBase: path.join(__dirname,'dist'),
+        compress:true,
+        open:true,
+        port:9000
+    },
     module:{
         rules:[
             {
