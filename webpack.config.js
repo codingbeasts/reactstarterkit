@@ -21,7 +21,7 @@ module.exports = {
     ]
   },
   devServer:{
-    contentBase: dist,
+    static: dist,
     port: 3000,
     hot:true
   },
